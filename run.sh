@@ -2,6 +2,9 @@
 
 set -ex
 
+sudo apt-get update
+sudo apt-get install msmtp msmtp-mta mailutils -y
+
 echo 'session optional pam_exec.so seteuid /usr/local/bin/login-notify' | sudo tee -a /etc/pam.d/sshd
 
 sudo bash -c 'cat <<EOF > /usr/local/bin/login-notify
